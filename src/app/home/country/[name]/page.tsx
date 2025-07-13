@@ -12,8 +12,6 @@ const getCountry = async(name: string): Promise<Country> => {
     const country = await fetch(`https://restcountries.com/v3.1/name/${ name }`, {
       cache: 'force-cache'
     }).then( resp => resp.json());
-  
-    console.log('Se cargó: ', country);
 
     return country[0];
     
