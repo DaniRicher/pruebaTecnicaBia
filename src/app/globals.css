@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: hsl(0, 0%, 98%);
   --foreground: #171717;
+  --header-background: hsl(0, 0%, 100%);
 }
 
 @theme inline {
@@ -12,15 +13,81 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+} */
+
+.dark {
+  --background: hsl(207, 26%, 17%);
+  --foreground: hsl(0, 0%, 100%);
+  --header-background: hsl(209, 23%, 22%); 
+}
+
+.dark .filter .filterRegion,
+.dark .filter .search {
+  background-color: hsl(209, 23%, 22%);
+  transition: background-color 0.4s ease;
+}
+
+input {
+  color: hsl(0, 0%, 52%);
+}
+
+.dark .details label,
+.dark .details button,
+.dark select {
+  color: white;
+  background-color: hsl(209, 23%, 22%);
+  transition: background-color 0.4s ease;
+}
+
+.dark button:hover {
+  background-color: white;
+  color: hsl(209, 23%, 22%);
+  transition: background-color 0.4s ease;
+}
+
+button:hover {
+  background-color: hsl(209, 23%, 22%);
+  color: white;
+  transition: background-color 0.4s ease;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito-sans);
+  transition: background-color 0.4s ease;
+}
+
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.4s ease-out;
 }
