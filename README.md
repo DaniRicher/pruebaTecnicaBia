@@ -16,21 +16,40 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Prueba técnica Bia
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Para resolver el reto, propuse una arquitectura modular utilizando Next.js en la versión 15 siguiendo alguna de las directrices del framework
 
-## Learn More
+## Estructura del proyecto
 
-To learn more about Next.js, take a look at the following resources:
+Font: Se utilizo nunitoSans estas fuentes ya vienen en Next.js.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+lib/: configuraciones y utilidades globales, como fontawesome.ts para la gestión de iconos.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+src/app/: Contiene las páginas, layouts y rutas del proyecto.
 
-## Deploy on Vercel
+home/countries: Página principal que muestra el listado de países.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+home/country/[name]: Ruta dinámica para mostrar el detalle de un país.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+src/components/: Componentes reutilizables que pueden usarse en distintas partes del proyecto (como Header, ButtonBack, DarkMenuToggle).
+
+src/countries/: Módulo específico del dominio “países”, que incluye:
+
+src/countries/components: Componentes que solo tienen sentido en el contexto de países (como CountryCard y CountryGrid).
+
+interfaces: tipado TypeScript para las respuestas de la API.
+
+##  Generalidades de cómo se resolvió
+
+Consumo de API: Utilicé la forma nativa de javascript para hacer peticiones.
+
+Componentes: Creé componentes reutilizables como CountryCard, CountryGrid, Header, ButtonBack y DarkMenuToggle para poder tener mas control sobre los componentes.
+
+Dark mode: Implemente el botón opcional de darkMode
+
+Responsive design: La maquetación está pensada para adaptarse a dispositivos móviles y escritorios.
+
+Tipado: Se definieron interfaces TypeScript para tipar correctamente las respuestas de la API.
+
+Estilo: Se agregaron estilos globales y específicos por componente para mantener coherencia visual.
